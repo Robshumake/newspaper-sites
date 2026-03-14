@@ -1,324 +1,371 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minneapolisstar - News & Analysis</title>
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml">
+    <title>Minneapolisstar News - News</title>
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="feed.xml">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
-        
-        /* NYT-style Header */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: #222;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* Header - NYT Classic */
         header {
-            border-top: 5px solid #333;
-            padding: 20px 0;
-            border-bottom: 1px solid #e0e0e0;
+            border-top: 3px solid #000;
+            border-bottom: 1px solid #ccc;
+            padding: 15px 0;
+            background: #fff;
             position: sticky;
             top: 0;
-            background: white;
             z-index: 100;
         }
-        
-        .header-container {
-            max-width: 1200px;
+
+        .header-wrapper {
+            max-width: 960px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-        
-        nav a {
+
+        .masthead {
+            font-size: 2.5em;
+            font-weight: bold;
+            letter-spacing: -2px;
+            font-family: Georgia, serif;
+            color: #000;
             text-decoration: none;
-            color: #333;
-            margin-left: 30px;
-            font-weight: 500;
-            font-size: 14px;
-        }
-        
-        nav a:hover { color: #007bff; }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 20px;
             text-align: center;
+            flex: 1;
         }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            font-weight: 700;
+
+        .masthead sup {
+            font-size: 0.4em;
+            letter-spacing: 3px;
+            margin-left: 5px;
         }
-        
-        .hero p {
-            font-size: 18px;
-            opacity: 0.9;
+
+        .tagline {
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            font-style: italic;
         }
-        
-        /* Main Grid Layout */
+
+        nav {
+            display: flex;
+            gap: 25px;
+            margin-top: 10px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            font-size: 13px;
+            font-weight: normal;
+            font-family: Arial, sans-serif;
+        }
+
+        nav a {
+            color: #222;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            padding-bottom: 5px;
+        }
+
+        nav a:hover {
+            border-bottom-color: #000;
+        }
+
+        /* Main Content */
         .container {
-            max-width: 1200px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px 15px;
             display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 40px;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
         }
-        
+
+        /* Lead Story */
+        .lead {
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .lead h1 {
+            font-size: 2.2em;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-family: Georgia, serif;
+        }
+
+        .lead .byline {
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .lead .description {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-family: Georgia, serif;
+        }
+
         /* Articles Grid */
         .articles {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 25px;
         }
-        
+
         article {
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #ccc;
             padding-bottom: 20px;
-            transition: transform 0.2s;
         }
-        
-        article:hover { transform: translateY(-5px); }
-        
+
+        article:last-child {
+            border-bottom: none;
+        }
+
         article h2 {
-            font-size: 22px;
-            margin-bottom: 10px;
+            font-size: 1.5em;
             line-height: 1.3;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-family: Georgia, serif;
         }
-        
-        article p {
+
+        article .byline {
+            font-size: 11px;
             color: #666;
-            line-height: 1.6;
-            font-size: 15px;
+            font-family: Arial, sans-serif;
+            margin-bottom: 5px;
         }
-        
-        .article-meta {
-            color: #999;
-            font-size: 13px;
-            margin-top: 10px;
-        }
-        
-        /* Sidebar */
-        .sidebar {
-            position: sticky;
-            top: 100px;
-        }
-        
-        .sidebar-box {
-            border: 1px solid #e0e0e0;
-            padding: 20px;
-            margin-bottom: 20px;
-            background: #f9f9f9;
-        }
-        
-        .sidebar-box h3 {
-            font-size: 16px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 10px;
-        }
-        
-        .sidebar-box ul {
-            list-style: none;
-        }
-        
-        .sidebar-box li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .sidebar-box a {
-            text-decoration: none;
-            color: #007bff;
+
+        article p {
             font-size: 14px;
+            color: #333;
+            line-height: 1.6;
         }
-        
-        /* Blog Platform */
-        .blog-section {
-            margin-top: 60px;
-            border-top: 2px solid #e0e0e0;
-            padding-top: 40px;
+
+        /* Sidebar */
+        aside {
+            border-left: 3px solid #000;
+            padding-left: 20px;
         }
-        
-        .blog-section h2 {
-            font-size: 32px;
+
+        .sidebar-section {
             margin-bottom: 30px;
         }
-        
-        .blog-posts {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+
+        .sidebar-section h3 {
+            font-size: 1.1em;
+            font-weight: bold;
+            font-family: Georgia, serif;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
         }
-        
-        .blog-post {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            overflow: hidden;
+
+        .sidebar-section ul {
+            list-style: none;
         }
-        
-        .blog-post-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+        .sidebar-section li {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
         }
-        
-        .blog-post-content {
-            padding: 20px;
+
+        .sidebar-section a {
+            color: #222;
+            text-decoration: none;
+            font-weight: 500;
         }
-        
-        .blog-post h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
+
+        .sidebar-section a:hover {
+            color: #666;
+            text-decoration: underline;
         }
-        
+
         /* Footer */
         footer {
-            background: #333;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 80px;
+            background: #f5f5f5;
+            border-top: 1px solid #ccc;
+            padding: 30px 0;
+            margin-top: 40px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #666;
         }
-        
-        footer a {
-            color: #667eea;
-            text-decoration: none;
+
+        .footer-content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
-        
+
+        .footer-content p {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .container { grid-template-columns: 1fr; }
-            .articles { grid-template-columns: 1fr; }
-            .blog-posts { grid-template-columns: 1fr; }
-            nav a { margin-left: 15px; }
-            .hero h1 { font-size: 32px; }
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .masthead {
+                font-size: 1.8em;
+            }
+
+            article h2 {
+                font-size: 1.3em;
+            }
+
+            .lead h1 {
+                font-size: 1.8em;
+            }
+
+            aside {
+                border-left: none;
+                border-top: 3px solid #000;
+                padding-left: 0;
+                padding-top: 20px;
+                margin-top: 30px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-container">
-            <div class="logo">Minneapolisstar</div>
-            <nav>
-                <a href="/">Home</a>
-                <a href="/news">News</a>
-                <a href="/blog">Blog</a>
-                <a href="/rss.xml">RSS Feed</a>
-                <a href="/about">About</a>
-            </nav>
+        <div class="header-wrapper">
+            <div>
+                <div class="masthead">Minneapolisstar News</div>
+                <div class="tagline">Breaking News & Analysis</div>
+            </div>
         </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#world">World</a>
+            <a href="#us">U.S.</a>
+            <a href="#politics">Politics</a>
+            <a href="#business">Business</a>
+            <a href="#opinion">Opinion</a>
+        </nav>
     </header>
-    
-    <section class="hero">
-        <h1>Breaking News & Analysis</h1>
-        <p>Stay informed with the latest stories from Minneapolisstar</p>
-    </section>
-    
-    <div class="container">
-        <main>
-            <!-- Featured Articles Grid -->
-            <section class="articles">
-                <article>
-                    <h2>Latest News Story</h2>
-                    <p>Breaking coverage of the most important stories from your region. Our editorial team brings you in-depth analysis and reporting you won't find anywhere else.</p>
-                    <div class="article-meta">Published today | By Staff</div>
+
+    <main>
+        <div class="container">
+            <section>
+                <!-- Lead Story -->
+                <article class="lead">
+                    <h1>Breaking: Major developments in today's news</h1>
+                    <div class="byline">By Staff Writers | Today</div>
+                    <p class="description">
+                        The latest news and analysis from Minneapolisstar News. Stay informed with breaking news, in-depth reporting, and expert commentary on the issues that matter most.
+                    </p>
                 </article>
-                
-                <article>
-                    <h2>In-Depth Analysis</h2>
-                    <p>Deep-dive investigation into major developments. Our journalists provide context and insight on stories that matter to you and your community.</p>
-                    <div class="article-meta">Published today | By Staff</div>
-                </article>
-                
-                <article>
-                    <h2>Local Impact</h2>
-                    <p>How recent events affect your community. We cover the issues that directly impact residents and businesses in the region.</p>
-                    <div class="article-meta">Published today | By Staff</div>
-                </article>
-                
-                <article>
-                    <h2>Opinion & Commentary</h2>
-                    <p>Expert perspectives on current events. Thought leaders and columnists share their insights on the issues shaping our world.</p>
-                    <div class="article-meta">Published today | By Contributors</div>
-                </article>
+
+                <!-- Featured Articles -->
+                <section class="articles">
+                    <article>
+                        <h2>Economy Shows Signs of Growth</h2>
+                        <div class="byline">By Financial Correspondent | 2 hours ago</div>
+                        <p>Latest economic indicators suggest renewed momentum across multiple sectors, with analysts closely watching inflationary trends.</p>
+                    </article>
+
+                    <article>
+                        <h2>International Relations Take New Turn</h2>
+                        <div class="byline">By World Editor | 3 hours ago</div>
+                        <p>Global political landscape shifts as nations adjust diplomatic strategies and engage in critical negotiations on key issues.</p>
+                    </article>
+
+                    <article>
+                        <h2>Technology Industry Announces Major Shift</h2>
+                        <div class="byline">By Technology Reporter | 4 hours ago</div>
+                        <p>Leading technology companies signal significant changes in their business strategies, affecting millions of users worldwide.</p>
+                    </article>
+
+                    <article>
+                        <h2>Health Officials Release New Guidelines</h2>
+                        <div class="byline">By Health Editor | 5 hours ago</div>
+                        <p>Comprehensive new health guidelines aim to address emerging public health challenges and improve overall wellness outcomes.</p>
+                    </article>
+
+                    <article>
+                        <h2>Sports: Championship Season Heats Up</h2>
+                        <div class="byline">By Sports Correspondent | 6 hours ago</div>
+                        <p>Teams intensify their efforts as the championship season reaches critical junctures with high stakes at every turn.</p>
+                    </article>
+
+                    <article>
+                        <h2>Entertainment: New Productions Premiere</h2>
+                        <div class="byline">By Entertainment Writer | 7 hours ago</div>
+                        <p>Fresh entertainment offerings provide audiences with compelling storytelling and cultural moments worth celebrating.</p>
+                    </article>
+                </section>
             </section>
-            
-            <!-- Blog Platform -->
-            <section class="blog-section">
-                <h2>Recent Blog Posts</h2>
-                <div class="blog-posts">
-                    <div class="blog-post">
-                        <div class="blog-post-image"></div>
-                        <div class="blog-post-content">
-                            <h3>Industry Trends</h3>
-                            <p>What's happening in News & Analysis and why it matters.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="blog-post">
-                        <div class="blog-post-image"></div>
-                        <div class="blog-post-content">
-                            <h3>How-To Guide</h3>
-                            <p>Practical advice and tips for readers like you.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="blog-post">
-                        <div class="blog-post-image"></div>
-                        <div class="blog-post-content">
-                            <h3>Expert Interview</h3>
-                            <p>Exclusive conversations with leading voices.</p>
-                        </div>
-                    </div>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="sidebar-section">
+                    <h3>Most Read</h3>
+                    <ul>
+                        <li><a href="#">Economy Shows Signs of Growth</a></li>
+                        <li><a href="#">International Relations Take New Turn</a></li>
+                        <li><a href="#">Technology Industry Announces Major Shift</a></li>
+                        <li><a href="#">Health Officials Release New Guidelines</a></li>
+                        <li><a href="#">Subscribe for Full Access</a></li>
+                    </ul>
                 </div>
-            </section>
-        </main>
-        
-        <!-- Sidebar: RSS & Updates -->
-        <aside class="sidebar">
-            <div class="sidebar-box">
-                <h3>📰 Top Stories</h3>
-                <ul>
-                    <li><a href="#">Breaking News Alert</a></li>
-                    <li><a href="#">Featured Investigation</a></li>
-                    <li><a href="#">Market Analysis</a></li>
-                    <li><a href="#">Community Focus</a></li>
-                    <li><a href="#">Opinion Leaders</a></li>
-                </ul>
-            </div>
-            
-            <div class="sidebar-box">
-                <h3>🔗 RSS Feeds</h3>
-                <ul>
-                    <li><a href="/rss.xml">All News</a></li>
-                    <li><a href="/rss/blog">Blog Posts</a></li>
-                    <li><a href="/rss/breaking">Breaking News</a></li>
-                    <li><a href="/rss/analysis">Analysis</a></li>
-                </ul>
-            </div>
-            
-            <div class="sidebar-box">
-                <h3>📧 Newsletter</h3>
-                <p>Get the latest delivered to your inbox daily.</p>
-                <input type="email" placeholder="Your email" style="width: 100%; padding: 8px; margin-top: 10px;">
-            </div>
-        </aside>
-    </div>
-    
+
+                <div class="sidebar-section">
+                    <h3>Top Sections</h3>
+                    <ul>
+                        <li><a href="#">World News</a></li>
+                        <li><a href="#">U.S. Politics</a></li>
+                        <li><a href="#">Business & Economy</a></li>
+                        <li><a href="#">Science & Health</a></li>
+                        <li><a href="#">Entertainment</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Subscribe</h3>
+                    <p>Get full access to all stories, newsletters, and more with a subscription.</p>
+                    <p><strong><a href="#">Subscribe Now →</a></strong></p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>RSS Feed</h3>
+                    <p><a href="feed.xml">Subscribe to our RSS feed</a> for the latest updates delivered directly to your reader.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
     <footer>
-        <p>&copy; 2026 Minneapolisstar. All rights reserved. | <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a> | <a href="/contact">Contact</a></p>
-        <p style="margin-top: 20px; font-size: 12px; opacity: 0.7;">Powered by Lovable News Network</p>
+        <div class="footer-content">
+            <p>&copy; 2026 Minneapolisstar News. All rights reserved.</p>
+            <p>Contact | Privacy Policy | Terms of Service | Accessibility | Advertising | Company</p>
+        </div>
     </footer>
 </body>
 </html>
