@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Losangelesnews - News & Analysis</title>
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+        
+        /* NYT-style Header */
+        header {
+            border-top: 5px solid #333;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 30px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        nav a:hover { color: #007bff; }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        /* Main Grid Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+        }
+        
+        /* Articles Grid */
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        article {
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        
+        article:hover { transform: translateY(-5px); }
+        
+        article h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        article p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        
+        .article-meta {
+            color: #999;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar-box {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #f9f9f9;
+        }
+        
+        .sidebar-box h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .sidebar-box ul {
+            list-style: none;
+        }
+        
+        .sidebar-box li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .sidebar-box a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 14px;
+        }
+        
+        /* Blog Platform */
+        .blog-section {
+            margin-top: 60px;
+            border-top: 2px solid #e0e0e0;
+            padding-top: 40px;
+        }
+        
+        .blog-section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .blog-post {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .blog-post-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .blog-post-content {
+            padding: 20px;
+        }
+        
+        .blog-post h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+            .articles { grid-template-columns: 1fr; }
+            .blog-posts { grid-template-columns: 1fr; }
+            nav a { margin-left: 15px; }
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Losangelesnews</div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/news">News</a>
+                <a href="/blog">Blog</a>
+                <a href="/rss.xml">RSS Feed</a>
+                <a href="/about">About</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>Breaking News & Analysis</h1>
+        <p>Stay informed with the latest stories from Losangelesnews</p>
+    </section>
+    
+    <div class="container">
+        <main>
+            <!-- Featured Articles Grid -->
+            <section class="articles">
+                <article>
+                    <h2>Latest News Story</h2>
+                    <p>Breaking coverage of the most important stories from your region. Our editorial team brings you in-depth analysis and reporting you won't find anywhere else.</p>
+                    <div class="article-meta">Published today | By Staff</div>
+                </article>
+                
+                <article>
+                    <h2>In-Depth Analysis</h2>
+                    <p>Deep-dive investigation into major developments. Our journalists provide context and insight on stories that matter to you and your community.</p>
+                    <div class="article-meta">Published today | By Staff</div>
+                </article>
+                
+                <article>
+                    <h2>Local Impact</h2>
+                    <p>How recent events affect your community. We cover the issues that directly impact residents and businesses in the region.</p>
+                    <div class="article-meta">Published today | By Staff</div>
+                </article>
+                
+                <article>
+                    <h2>Opinion & Commentary</h2>
+                    <p>Expert perspectives on current events. Thought leaders and columnists share their insights on the issues shaping our world.</p>
+                    <div class="article-meta">Published today | By Contributors</div>
+                </article>
+            </section>
+            
+            <!-- Blog Platform -->
+            <section class="blog-section">
+                <h2>Recent Blog Posts</h2>
+                <div class="blog-posts">
+                    <div class="blog-post">
+                        <div class="blog-post-image"></div>
+                        <div class="blog-post-content">
+                            <h3>Industry Trends</h3>
+                            <p>What's happening in News & Analysis and why it matters.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-post">
+                        <div class="blog-post-image"></div>
+                        <div class="blog-post-content">
+                            <h3>How-To Guide</h3>
+                            <p>Practical advice and tips for readers like you.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-post">
+                        <div class="blog-post-image"></div>
+                        <div class="blog-post-content">
+                            <h3>Expert Interview</h3>
+                            <p>Exclusive conversations with leading voices.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Sidebar: RSS & Updates -->
+        <aside class="sidebar">
+            <div class="sidebar-box">
+                <h3>📰 Top Stories</h3>
+                <ul>
+                    <li><a href="#">Breaking News Alert</a></li>
+                    <li><a href="#">Featured Investigation</a></li>
+                    <li><a href="#">Market Analysis</a></li>
+                    <li><a href="#">Community Focus</a></li>
+                    <li><a href="#">Opinion Leaders</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-box">
+                <h3>🔗 RSS Feeds</h3>
+                <ul>
+                    <li><a href="/rss.xml">All News</a></li>
+                    <li><a href="/rss/blog">Blog Posts</a></li>
+                    <li><a href="/rss/breaking">Breaking News</a></li>
+                    <li><a href="/rss/analysis">Analysis</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-box">
+                <h3>📧 Newsletter</h3>
+                <p>Get the latest delivered to your inbox daily.</p>
+                <input type="email" placeholder="Your email" style="width: 100%; padding: 8px; margin-top: 10px;">
+            </div>
+        </aside>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Losangelesnews. All rights reserved. | <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a> | <a href="/contact">Contact</a></p>
+        <p style="margin-top: 20px; font-size: 12px; opacity: 0.7;">Powered by Lovable News Network</p>
+    </footer>
+</body>
+</html>

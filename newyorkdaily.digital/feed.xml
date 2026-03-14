@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+    <title>Newyorkdaily - News Feed</title>
+    <link>https://newyorkdaily.digital</link>
+    <description>Latest news and articles from Newyorkdaily</description>
+    <lastBuildDate>Sat, 14 Mar 2026 06:45:46 GMT</lastBuildDate>
+    
+    <item>
+        <title>Latest Breaking News</title>
+        <link>https://newyorkdaily.digital/news/1</link>
+        <description>Breaking coverage of important developments affecting your community.</description>
+        <pubDate>Sat, 14 Mar 2026 06:45:46 GMT</pubDate>
+    </item>
+    
+    <item>
+        <title>In-Depth Analysis</title>
+        <link>https://newyorkdaily.digital/analysis/1</link>
+        <description>Expert analysis and context on major news stories.</description>
+        <pubDate>Sat, 14 Mar 2026 06:45:46 GMT</pubDate>
+    </item>
+    
+    <item>
+        <title>Community Impact</title>
+        <link>https://newyorkdaily.digital/community/1</link>
+        <description>How recent news affects local residents and businesses.</description>
+        <pubDate>Sat, 14 Mar 2026 06:45:46 GMT</pubDate>
+    </item>
+</channel>
+</rss>

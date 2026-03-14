@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+    <title>Gourmetmagazine - News Feed</title>
+    <link>https://gourmetmagazine.digital</link>
+    <description>Latest news and articles from Gourmetmagazine</description>
+    <lastBuildDate>Sat, 14 Mar 2026 06:45:46 GMT</lastBuildDate>
+    
+    <item>
+        <title>Latest Breaking News</title>
+        <link>https://gourmetmagazine.digital/news/1</link>
+        <description>Breaking coverage of important developments affecting your community.</description>
+        <pubDate>Sat, 14 Mar 2026 06:45:46 GMT</pubDate>
+    </item>
+    
+    <item>
+        <title>In-Depth Analysis</title>
+        <link>https://gourmetmagazine.digital/analysis/1</link>
+        <description>Expert analysis and context on major news stories.</description>
+        <pubDate>Sat, 14 Mar 2026 06:45:46 GMT</pubDate>
+    </item>
+    
+    <item>
+        <title>Community Impact</title>
+        <link>https://gourmetmagazine.digital/community/1</link>
+        <description>How recent news affects local residents and businesses.</description>
+        <pubDate>Sat, 14 Mar 2026 06:45:46 GMT</pubDate>
+    </item>
+</channel>
+</rss>
