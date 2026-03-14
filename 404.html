@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        // Capture the domain being accessed
+        const host = window.location.hostname;
+        const path = window.location.pathname;
+        
+        // If accessing a domain directly, redirect to /newspaper-sites/{domain}/
+        if (host !== 'Robshumake.github.io' && !host.startsWith('localhost')) {
+            // User accessed a direct domain (e.g., chicagodaily.digital)
+            // Redirect to the subdirectory version
+            const newUrl = `https://Robshumake.github.io/newspaper-sites/${host}${path}`;
+            window.location.replace(newUrl);
+        } else {
+            // This is a GitHub Pages URL or localhost, serve normally
+            // Show 404 page
+            document.body.innerHTML = '<h1>404 - Page not found</h1><p>The page you are looking for does not exist.</p>';
+        }
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+</body>
+</html>
